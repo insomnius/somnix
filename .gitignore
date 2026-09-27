@@ -1,0 +1,22 @@
+# Generated outputs
+build/
+dist/
+bin/
+*.o
+*.a
+*.so
+*.exe
+*.out
+*.ptx
+*.cubin
+*.nsys-rep
+*.ncu-rep
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+__pycache__/
+.DS_Store
