@@ -23,6 +23,11 @@ are outside the first version.
 - `runtime/`: future runtime implementation.
 - `examples/`: future runnable examples.
 - `docs/language-design.md`: proposed semantics and scope.
+- `docs/design-examples.md`: illustrative Result handling and wait-group syntax.
+
+The agreed error model uses `Result[Value, Error]`, `Ok`/`Err`, and `?` propagation.
+Wait groups track task completion; channels carry values. Task-error reporting is
+separate from waiting. These are design decisions, not implemented capabilities.
 
 ## First milestones
 
