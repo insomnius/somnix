@@ -9,8 +9,17 @@ September 28, 2026. Examples below describe the target design, not working featu
 
 Ruby-inspired syntax with static typing and local inference.
 Numbers, booleans, variables, functions, conditions, loops, structs, and numerical arrays.
-Compiler implemented in Go, emitting C linked to a small runtime.
+Compiler implemented in Go, targeting native x86-64 Linux executables. The first backend
+emits x86-64 assembly and uses the platform assembler and linker. It does not generate C or
+target a bytecode virtual machine. Implementing object-file generation directly can be a later
+learning milestone.
 Reference interpretation provides an independent behavior baseline.
+
+The runtime will be written in x86-64 assembly for Linux, not C. Generated program
+assembly and handwritten runtime assembly are assembled and linked into a native
+executable. The runtime provides shared support such as memory allocation and tasks.
+This prioritizes low-level learning over implementation speed and portability;
+external libraries such as CUDA may still be dependencies.
 
 CPU concurrency begins with OS-thread-backed tasks and bounded typed channels.
 Initially restrict messages to copied scalar values and use isolated heaps.
